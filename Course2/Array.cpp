@@ -6,34 +6,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(){
-    int size;
-    int *a, *ra;
-    printf("array size?");
-    scanf("%d", &size);
-
-    a = createArray(size);
-    ra = createRandomArray(size);
-
-    // Display array content
-    displayArray(a, size);
-    displayArray(ra, size);
-
-    // Sort random array and display
-    simpleSort(ra,size);
-    displayArray(ra, size);
-
-    // Destroy the arrays
-    destroyArray(&a);
-    destroyArray(&ra);
-
-    // Display the empty arrays
-    displayArray(a, size);
-    displayArray(ra, size);
-
-    return 0;
-}
-
 int* createArray(int nElle)
 {
     int* array = (int*)malloc(nElle * sizeof(int));
