@@ -5,6 +5,7 @@
 #include "Array.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 int* createArray(int nElle)
 {
@@ -68,4 +69,27 @@ void simpleSort(int *a, int nElles)
             }
         }
     }
+}
+
+void simpleSortGeneric(void *a,int nEle, int elemSize, int (*compare)(void*,void*))
+{
+    int last = nEle * elemSize;
+    void *tmp = malloc(elemSize);
+
+    // Loop up until last elements
+    for(int i=0; i< last-elemSize; i+= elemSize)
+    {
+        // Match with remaining element.
+        for(int j=i+elemSize; j < last; j+=elemSize)
+        {
+            // If next element is smaller
+            if( compare( a+i, a+j) > 0) {
+                // Swap
+                memcpy(tmp, a+j, elemSize);
+                memcpy(a+j, a+i, elemSize);
+                memcpy(a+i, tmp, elemSize);
+            }
+        }
+    }
+    free(tmp);
 }

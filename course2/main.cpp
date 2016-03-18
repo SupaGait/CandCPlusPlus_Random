@@ -6,7 +6,8 @@
 
 // #define DO_TEST_ARRAY
 //#define DO_TEST_STACK
-#define DO_TEST_STACKLIST
+//#define DO_TEST_STACKLIST
+#define DO_TEST_ARRAYGENERIC
 
 #ifdef DO_TEST_ARRAY
 #include "Array.h"
@@ -82,5 +83,42 @@ int main()
     printf("\n");
     destroyStack(stack);
 
+}
+#endif
+
+#ifdef DO_TEST_ARRAYGENERIC
+#include "Array.h"
+
+int compareInt(void *a, void *b)
+{
+    return ( *((int*)a) - *((int*)b) );
+}
+int main(){
+    // Test Array
+    int size;
+    int *a, *ra;
+    printf("array size?");
+    scanf("%d", &size);
+
+    a = createArray(size);
+    ra = createRandomArray(size);
+
+    // Display array content
+    displayArray(a, size);
+    displayArray(ra, size);
+
+    // Sort random array and display
+    simpleSortGeneric(ra, size, sizeof(int), compareInt);
+    displayArray(ra, size);
+
+    // Destroy the arrays
+    destroyArray(&a);
+    destroyArray(&ra);
+
+    // Display the empty arrays
+    displayArray(a, size);
+    displayArray(ra, size);
+
+    return 0;
 }
 #endif

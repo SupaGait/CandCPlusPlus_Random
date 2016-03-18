@@ -31,5 +31,6 @@ void displayArray(int *a, int nElles);
  */
 void simpleSort(int *a, int nElles);
 
+void simpleSortGeneric(void *a,int nEle, int elemSize, int(*compare)(void*,void*));
 
 #endif //TEST_ARRAY_H
