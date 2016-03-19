@@ -71,7 +71,7 @@ void simpleSort(int *a, int nElles)
     }
 }
 
-void simpleSortGeneric(void *a,int nEle, int elemSize, int (*compare)(void*,void*))
+void simpleSortGeneric(void *a,unsigned int nEle, unsigned int elemSize, int (*compare)(const void*,const void*))
 {
     int last = nEle * elemSize;
     void *tmp = malloc(elemSize);
@@ -83,11 +83,12 @@ void simpleSortGeneric(void *a,int nEle, int elemSize, int (*compare)(void*,void
         for(int j=i+elemSize; j < last; j+=elemSize)
         {
             // If next element is smaller
-            if( compare( a+i, a+j) > 0) {
+            char *elemStart = (char*)a;
+            if(compare(elemStart + i, elemStart + j) > 0) {
                 // Swap
-                memcpy(tmp, a+j, elemSize);
-                memcpy(a+j, a+i, elemSize);
-                memcpy(a+i, tmp, elemSize);
+                memcpy(tmp, elemStart + j, elemSize);
+                memcpy(elemStart + j, elemStart + i, elemSize);
+                memcpy(elemStart + i, tmp, elemSize);
             }
         }
     }

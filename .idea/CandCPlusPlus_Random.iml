@@ -11,6 +11,7 @@
       <sourceFolder url="file://$MODULE_DIR$/course2/Array.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/course2/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/course2/Stack.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/course2/sortTestMain.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/test/main.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/test/test.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/test/CMakeLists.txt" isTestSource="false" />

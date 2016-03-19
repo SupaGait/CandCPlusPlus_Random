@@ -89,13 +89,13 @@ int main()
 #ifdef DO_TEST_ARRAYGENERIC
 #include "Array.h"
 
-int compareInt(void *a, void *b)
+int compareInt(const void *a, const void *b)
 {
     return ( *((int*)a) - *((int*)b) );
 }
 int main(){
     // Test Array
-    int size;
+    size_t size;
     int *a, *ra;
     printf("array size?");
     scanf("%d", &size);
