@@ -3,6 +3,19 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/course3_list/ListTest.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/course3_list/List.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/course3_list/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/course3_list/List.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/course2/StackLinked.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/course2/main.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/course2/Array.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/course2/StackLinked.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/course2/Stack.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/course2/Array.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/course2/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/course2/Stack.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/course2/sortTestMain.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/course3/genericStackV2.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/course3/main.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/course3/StackLinkedGeneric.h" isTestSource="false" />
@@ -13,18 +26,6 @@
       <sourceFolder url="file://$MODULE_DIR$/course3/genericStackV2Opt.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/course3/genericStackV2Opt.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/course3/CMakeLists.txt" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/course2/StackLinked.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/course2/main.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/course2/Stack.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/course2/StackLinked.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/course2/Stack.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/course2/Array.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/course2/Array.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/course2/CMakeLists.txt" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/course2/sortTestMain.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/test/main.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/test/test.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/test/CMakeLists.txt" isTestSource="false" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">
