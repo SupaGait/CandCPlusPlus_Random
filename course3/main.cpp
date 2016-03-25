@@ -30,8 +30,23 @@ int main(int arc, char** args)
 
     // Display all the lements
     while (!isEmpty(stack)){
-        printf("%d,", *((int*)(*stack)->element));
-        pop(stack);
+        int *element;
+
+        result = top(stack, (void**)&element );
+        if(result) {
+            fprintf(stderr, "%s\n", errorMessage(result));
+            return 3;
+        }
+
+         printf("%d,", *element);
+
+        //printf("%d,", *((int*)(*stack)->element));
+
+        result = pop(stack);
+        if(result) {
+            fprintf(stderr, "%s\n", errorMessage(result));
+            return 4;
+        }
     }
     printf("\n");
 
