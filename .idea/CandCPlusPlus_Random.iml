@@ -6,8 +6,10 @@
       <sourceFolder url="file://$MODULE_DIR$/course3/main.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/course3/StackLinkedGenericOpti.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/course3/Status.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/course3/genericStack.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/course3/Status.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/course3/StackLinkedGeneric.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/course3/genericStack.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/course3/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/course2/StackLinked.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/course2/main.cpp" isTestSource="false" />

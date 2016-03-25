@@ -3,8 +3,9 @@
 //
 
 #include <stdio.h>
-#include "StackLinkedGeneric.h"
 
+#if 0
+#include "StackLinkedGeneric.h"
 int main(int arc, char** args)
 {
     int e1 = 1, e2=2;
@@ -54,3 +55,56 @@ int main(int arc, char** args)
     destroyStack(stack);
     return 0;
 }
+#endif
+
+
+#if 1
+#include "genericStack.h"
+int main(int arc, char** args)
+{
+    int e1 = 1, e2=2;
+    Status result;
+
+    Stack *stack = createStack(sizeof(int));
+    if(!stack)
+        return 1;
+
+    // Add two elements
+    result = push(stack,&e1);
+    if(result)
+    {
+        fprintf(stderr, "%s\n", errorMessage(result));
+        return 2;
+    }
+    result = push(stack,&e2);
+    if(result)
+    {
+        fprintf(stderr, "%s\n", errorMessage(result));
+        return 2;
+    }
+
+    // Display all the elements
+    while (!isEmpty(stack)){
+        int element;
+
+        result = top(stack, &element);
+        if(result) {
+            fprintf(stderr, "%s\n", errorMessage(result));
+            return 3;
+        }
+
+        printf("%d,", element);
+
+        result = pop(stack);
+        if(result) {
+            fprintf(stderr, "%s\n", errorMessage(result));
+            return 4;
+        }
+    }
+    printf("\n");
+
+    // Clean up and exit
+    destroyStack(stack);
+    return 0;
+}
+#endif
