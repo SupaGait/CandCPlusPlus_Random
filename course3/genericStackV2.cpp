@@ -4,7 +4,7 @@
 
 #include <stdlib.h>
 #include <string.h>
-#include "genericStack.h"
+#include "genericStackV2.h"
 
 Stack* createStack(unsigned int elementSize) {
     Stack *stack = (Stack*)malloc(sizeof(Stack));
