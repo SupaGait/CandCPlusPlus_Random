@@ -130,6 +130,6 @@ status	addList	(List*,void*);
  * @return 1 if element is at the head of the list (no predecessor)
  * @return (a pointer to) the predecessor of the search element otherwise
  */
-Node*	isInList	(List*,void*);
+Node*	isInList	(List*,void*, int*);
 
 #endif

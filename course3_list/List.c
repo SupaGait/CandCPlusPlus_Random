@@ -7,6 +7,8 @@ List *newList(compFun fun, prFun fun1) {
     {
         newList->comp = fun;
         newList->pr = fun1;
+        newList->head = 0;
+        newList->nelts = 0;
     }
     return newList;
 }
@@ -29,11 +31,12 @@ status nthInList(List *list, int i, void **pVoid) {
         node = node->next;
     }
     if(node) {
-        *pVoid = node;
+        *pVoid = node->val;
         return OK;
     }
-    else
+    else {
         return ERRINDEX;
+    }
 }
 
 status addListAt(List *list, int i, void *pVoid) {
@@ -44,38 +47,142 @@ status addListAt(List *list, int i, void *pVoid) {
     }
     if(node)
     {
-        // Save next node
-        node = node->next;
-        node->next = (Node*)malloc(sizeof(node));
+        // Save next node, allocate and insert new element, set next node.
+        Node *tmpNode = node->next;
+        node = (Node*)malloc(sizeof(node));
+        if(!node) {
+            return ERRALLOC;
+        }
+        node->val = pVoid;
+        node->next = tmpNode;
+        ++list->nelts;
     }
-
-    return ERRUNABLE;
+    else {
+        // Node not found
+        return ERRINDEX;
+    }
+    return OK;
 }
 
 status remFromListAt(List *list, int i, void **pVoid) {
-    return ERRUNABLE;
+    Node *node = list->head;
+    for (int pos = 0; pos < i && node ; ++pos) {
+        node = node->next;
+    }
+    if(node) {
+        Node* tmpNode = node->next;
+        free(node);
+        node->next = tmpNode;
+        --list->nelts;
+    }
+    else {
+        return ERRINDEX;
+    }
+    return OK;
 }
 
 status remFromList(List *list, void *pVoid) {
-    return ERRUNABLE;
+    // Test if comparable function is available
+    if(!list->comp)
+        return ERRUNABLE;
+
+    // Iterate through the list, and remove element if found using compare
+    Node *node = list->head;
+    while(node)
+    {
+        if( list->comp(pVoid, node->val) == 0 ) {
+            Node* tmpNode = node->next;
+            free(node);
+            node->next = tmpNode;
+            --list->nelts;
+            return OK;
+        }
+        node = node->next;
+    }
+    return ERRABSENT;
 }
 
 status displayList(List *list) {
-    return ERRUNABLE;
+    if(!list->pr) {
+        return ERRUNABLE;
+    }
+    // Print all nodes, using the set method
+    for (Node *node = list->head; node ; node=node->next) {
+        list->pr(node->val);
+    }
+    return OK;
 }
 
 void forEach(List *list, void (*pFunction)(void *)) {
-
+    // Iterate through nodes and call the function
+    for (Node* node = list->head; node; node = node->next) {
+        pFunction(node->val);
+    }
 }
 
 int lengthList(List *list) {
-    return 0;
+    int length = 0;
+    for (Node* node = list->head; node; node = node->next) {
+        length++;
+    }
+    return length;
 }
 
 status addList(List *list, void *pVoid) {
-    return ERRUNABLE;
+    // Check for comparable function
+    if(!list->comp) {
+        return ERRUNABLE;
+    }
+
+    // Create the new node
+    Node* newNode = (Node*)malloc( sizeof(Node) );
+    if(!newNode) {
+        return ERRALLOC;
+    }
+    newNode->val = pVoid;
+    newNode->next = 0;
+    ++list->nelts;
+
+    // Add in the list where applicable
+    if(!list->head) {
+        list->head = newNode;
+    }
+    else {
+        Node *node = list->head;
+        while (node->next) {
+            if (list->comp(pVoid, node->next->val) <= 0) {
+                // Add in between
+                Node *tmpNode = node->next;
+                node->next = newNode;
+                newNode->next = tmpNode;
+                return OK;
+            }
+            node = node->next;
+        }
+        //Append as last
+        node->next = newNode;
+    }
+    return OK;
 }
 
-Node *isInList(List *list, void *pVoid) {
-    return NULL;
+Node *isInList(List *list, void *pVoid, int* pIsHead) {
+    Node *node = list->head;
+
+    // element is at the head of the list
+    if(list->comp(pVoid, node->val) == 0 ) {
+        *pIsHead = 1;
+        return 0;            // Requirement say return 1... but this is not possible with this impl.
+    }
+    *pIsHead = 0;
+
+    // Iterate through the list and return matching node if found.
+    while (node->next){
+        if(list->comp(node->next->val, pVoid) == 0) {
+            return node;
+        }
+        node = node->next;
+    }
+
+    // Not found
+    return 0;
 }

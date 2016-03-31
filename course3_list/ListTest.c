@@ -68,11 +68,12 @@ int main() {
     putchar('\n');
 
     /*  test contain predicate */
-    if (isInList(l,"mourir"))
+    int isHead;
+    if (isInList(l,"mourir",&isHead))
         puts("mourir is in list");
     else
         puts("mourir is not in list");
-    if (isInList(l,"vivre"))
+    if (isInList(l,"vivre",&isHead))
         puts("vivre is in list");
     else
         puts("vivre is not in list");
